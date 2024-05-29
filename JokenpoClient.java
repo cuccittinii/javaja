@@ -13,19 +13,28 @@ public class JokenpoClient {
              Scanner scanner = new Scanner(System.in)) {
 
             System.out.println("Conectado ao servidor.");
-            
-            // Lendo mensagem inicial do servidor
-            System.out.println(input.readLine());
-            
-            // Escolhendo movimento
-            System.out.println("Escolha seu movimento (pedra, papel ou tesoura): ");
-            String move = scanner.nextLine();
-            output.println(move);
 
-            // Recebendo resultado
-            String result = input.readLine();
-            System.out.println(result);
+            // Lendo mensagens iniciais do servidor
+            System.out.println(input.readLine());
+            System.out.println(input.readLine());
+
+            for (int i = 0; i < 3; i++) {
+                // Mensagem de instrução para escolher o movimento
+                System.out.println(input.readLine());
+                // Enviando movimento escolhido
+                String move = scanner.nextLine();
+                output.println(move);
+
+                // Recebendo e exibindo o resultado da rodada
+                String result = input.readLine();
+                System.out.println(result);
+            }
+
+            // Mensagem final do jogo
+            System.out.println(input.readLine());
+
         } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
